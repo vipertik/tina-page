@@ -61,6 +61,39 @@
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
+ <div id="ageDisplay" style="margin-top: 20px; font-size: 16px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
+
+<script>
+  const birthDate = new Date("2020-07-07T11:05:00");
+
+  function updateAge() {
+    const now = new Date();
+    let diff = now - birthDate;
+
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    diff -= years * 1000 * 60 * 60 * 24 * 365.25;
+
+    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+    diff -= months * 1000 * 60 * 60 * 24 * 30.44;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * 1000 * 60 * 60 * 24;
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * 1000 * 60 * 60;
+
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * 1000 * 60;
+
+    const seconds = Math.floor(diff / 1000);
+
+    document.getElementById("ageDisplay").textContent =
+      `Tina's Age: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  setInterval(updateAge, 1000);
+  updateAge();
+</script>  
     <p>"This page is reserved for the beautiful future of Tina Jamshidi."</p>
   </div>
 
