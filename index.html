@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,7 @@
       color: #d85f22;
     }
     .icon-row {
+      text-align: center;
       margin-top: 20px;
     }
     .icon-row a {
@@ -44,8 +46,11 @@
     }
     .icon {
       width: 24px;
+      height: 24px;
+      border: 2px solid #ffffff;
       opacity: 0.85;
       transition: transform 0.2s ease;
+      vertical-align: middle;
     }
     .icon:hover {
       transform: scale(1.3);
@@ -69,37 +74,25 @@
     tinajamshidi  
   </div>
 
-  <!-- Contact Icons with Pink Border -->
-<style>
-  .icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    margin: 0 8px;
-    vertical-align: middle;
-  }
-  .icon-row {
-    text-align: center;
-    margin-top: 20px;
-  }
-</style>
+  <!-- Contact Icons -->
+  <div class="icon-row">
+    <a href="mailto:tinajamshidi@hotmail.com">
+      <img src="https://cdn-icons-png.flaticon.com/512/542/542638.png" alt="Email" class="icon" />
+    </a>
+    <a href="https://instagram.com/jamshidi.tina" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon" />
+    </a>
+  </div>
 
-<div class="icon-row">
-  <a href="mailto:tinajamshidi@hotmail.com">
-    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email" class="icon" />
-  </a>
-  <a href="https://instagram.com/jamshidi.tina" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="icon" />
-  </a>
-</div>
   <!-- Footer -->
-<div style="text-align: center; margin-top: 20px;">
-  <p style="color: #000000; font-size: 9px; font-family: Arial, sans-serif;">
-    2020–<span id="currentYear"></span> | All rights reserved by NIKSYSTEM Company.
-  </p>
-</div>
+  <div style="text-align: center; margin-top: 20px;">
+    <p style="color: #000000; font-size: 8px; font-family: Arial, sans-serif;">
+      2020–<span id="currentYear"></span> | All rights reserved by NIKSYSTEM Company.
+    </p>
+  </div>
 
-<script>
-  document.getElementById("currentYear").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
