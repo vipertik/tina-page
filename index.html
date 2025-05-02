@@ -61,10 +61,11 @@
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
- <div id="ageDisplay" style="margin-top: 20px; font-size: 14px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
+<div id="ageDisplay" style="margin-top: 20px; font-size: 14px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
 
 <script>
-  const birthDate = new Date("2020-07-07T11:05:00");
+  // تولد تینا: 7 جولای 2020 ساعت 11:05 صبح به وقت ایران (بدون DST)
+  const birthDate = new Date("2020-07-07T07:35:00Z"); // 11:05 IRST = 07:35 UTC
 
   function updateAge() {
     const now = new Date();
