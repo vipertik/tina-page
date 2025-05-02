@@ -61,11 +61,50 @@
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
-<div id="ageDisplay" style="margin-top: 20px; font-size: 14px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
+<div id="digitalAgeTimer" class="digital-timer">
+  <div class="time-box"><span id="years">0</span><label>Years</label></div>
+  <div class="time-box"><span id="months">0</span><label>Months</label></div>
+  <div class="time-box"><span id="days">0</span><label>Days</label></div>
+  <div class="time-box"><span id="hours">0</span><label>Hours</label></div>
+  <div class="time-box"><span id="minutes">0</span><label>Minutes</label></div>
+  <div class="time-box"><span id="seconds">0</span><label>Seconds</label></div>
+</div>
+
+<style>
+  .digital-timer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.35);
+    padding: 20px;
+    border-radius: 15px;
+    font-family: 'Courier New', monospace;
+    gap: 10px;
+  }
+  .time-box {
+    background: #1e1e2f;
+    color: #00ffe7;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 70px;
+    box-shadow: 0 0 8px #00ffe7;
+  }
+  .time-box span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .time-box label {
+    font-size: 12px;
+    color: #cccccc;
+  }
+</style>
 
 <script>
-  // تولد تینا: 7 جولای 2020 ساعت 11:05 صبح به وقت ایران (بدون DST)
-  const birthDate = new Date("2020-07-07T07:35:00Z"); // 11:05 IRST = 07:35 UTC
+  const birthDate = new Date("2020-07-07T07:35:00Z");
 
   function updateAge() {
     const now = new Date();
@@ -88,8 +127,12 @@
 
     const seconds = Math.floor(diff / 1000);
 
-    document.getElementById("ageDisplay").textContent =
-      `Tina's Age: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    document.getElementById("years").textContent = years;
+    document.getElementById("months").textContent = months;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
   }
 
   setInterval(updateAge, 1000);
