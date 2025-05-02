@@ -60,78 +60,160 @@
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
-<div class="timer-container">
-  <div class="time-box"><span id="years">0</span><div class="label">Years</div></div>
-  <div class="time-box"><span id="months">0</span><div class="label">Months</div></div>
-  <div class="time-box"><span id="days">0</span><div class="label">Days</div></div>
-  <div class="time-box"><span id="hours">0</span><div class="label">Hours</div></div>
-  <div class="time-box"><span id="minutes">0</span><div class="label">Minutes</div></div>
-  <div class="time-box"><span id="seconds">0</span><div class="label">Seconds</div></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tina's Magical Timer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-<style>
-  .timer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 30px;
-    gap: 10px;
-  }
-  .time-box {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 10px 15px;
-    min-width: 70px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-  .label {
-    font-size: 12px;
-    font-weight: normal;
-    margin-top: 4px;
-    color: #ffeaea;
-  }
-</style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd6ec, #ffe2f7, #fff0f5);
+      background-size: cover;
+      overflow-x: hidden;
+    }
 
-<script>
-  const birthDate = new Date("2020-07-07T11:05:00");
-  function updateTimer() {
-    const now = new Date();
-    let diff = now - birthDate;
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 80px auto 20px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 30px rgba(255, 105, 180, 0.3);
+      backdrop-filter: blur(15px);
+    }
 
-    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-    diff -= years * 1000 * 60 * 60 * 24 * 365.25;
+    .time-box {
+      flex: 1 1 40%;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      text-align: center;
+      font-size: 1.2em;
+      box-shadow: 0 4px 15px rgba(255, 192, 203, 0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
 
-    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
-    diff -= months * 1000 * 60 * 60 * 24 * 30.44;
+    .time-box::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      border-radius: 20px;
+      background: linear-gradient(45deg, #ff9aee, #ffc0cb, #ffd1f2);
+      z-index: -1;
+      filter: blur(8px);
+    }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * 1000 * 60 * 60 * 24;
+    .time-box .value {
+      font-size: 2.5em;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 8px #ff69b4;
+    }
 
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * 1000 * 60 * 60;
+    .time-box .label {
+      font-size: 0.9em;
+      color: #fff8;
+    }
 
-    const minutes = Math.floor(diff / (1000 * 60));
-    diff -= minutes * 1000 * 60;
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #ff69b4;
+      text-shadow: 0 0 10px #ffb6c1;
+    }
 
-    const seconds = Math.floor(diff / 1000);
+    .footer {
+      text-align: center;
+      font-size: 0.7em;
+      color: #888;
+      margin: 40px 0 10px;
+    }
+  </style>
+</head>
+<body>
 
-    document.getElementById("years").textContent = years;
-    document.getElementById("months").textContent = months;
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-  }
+  <h1>Tina's Magical Timer</h1>
+  <div class="timer-container" id="ageDisplay">
+    <div class="time-box">
+      <div class="value" id="years">0</div>
+      <div class="label">Years</div>
+    </div>
+    <div class="time-box">
+      <div class="value" id="months">0</div>
+      <div class="label">Months</div>
+    </div>
+    <div class="time-box">
+      <div class="value" id="days">0</div>
+      <div class="label">Days</div>
+    </div>
+    <div class="time-box">
+      <div class="value" id="hours">0</div>
+      <div class="label">Hours</div>
+    </div>
+    <div class="time-box">
+      <div class="value" id="minutes">0</div>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="time-box">
+      <div class="value" id="seconds">0</div>
+      <div class="label">Seconds</div>
+    </div>
+  </div>
 
-  setInterval(updateTimer, 1000);
-  updateTimer();
-</script>
+  <div class="footer">2020–<span id="currentYear"></span> | All Rights Reserved by NIKSYSTEM Co.</div>
+
+  <script>
+    const birthDate = new Date("2020-07-07T11:05:00");
+
+    function updateAge() {
+      const now = new Date();
+      let diff = now - birthDate;
+
+      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+      diff -= years * 1000 * 60 * 60 * 24 * 365.25;
+
+      const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+      diff -= months * 1000 * 60 * 60 * 24 * 30.44;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * 1000 * 60 * 60 * 24;
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * 1000 * 60 * 60;
+
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * 1000 * 60;
+
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById("years").textContent = years;
+      document.getElementById("months").textContent = months;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateAge, 1000);
+    updateAge();
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
     <p>"This page is reserved for the beautiful future of Tina Jamshidi."</p>
   </div>
 
