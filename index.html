@@ -60,12 +60,47 @@
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
- <div id="ageDisplay" style="margin-top: 20px; font-size: 14px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
+<div class="timer-container">
+  <div class="time-box"><span id="years">0</span><div class="label">Years</div></div>
+  <div class="time-box"><span id="months">0</span><div class="label">Months</div></div>
+  <div class="time-box"><span id="days">0</span><div class="label">Days</div></div>
+  <div class="time-box"><span id="hours">0</span><div class="label">Hours</div></div>
+  <div class="time-box"><span id="minutes">0</span><div class="label">Minutes</div></div>
+  <div class="time-box"><span id="seconds">0</span><div class="label">Seconds</div></div>
+</div>
+
+<style>
+  .timer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  .time-box {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 10px 15px;
+    min-width: 70px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .label {
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 4px;
+    color: #ffeaea;
+  }
+</style>
 
 <script>
   const birthDate = new Date("2020-07-07T11:05:00");
-
-  function updateAge() {
+  function updateTimer() {
     const now = new Date();
     let diff = now - birthDate;
 
@@ -86,13 +121,17 @@
 
     const seconds = Math.floor(diff / 1000);
 
-    document.getElementById("ageDisplay").textContent =
-      `Tina's Age: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    document.getElementById("years").textContent = years;
+    document.getElementById("months").textContent = months;
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
   }
 
-  setInterval(updateAge, 1000);
-  updateAge();
-</script>  
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
     <p>"This page is reserved for the beautiful future of Tina Jamshidi."</p>
   </div>
 
