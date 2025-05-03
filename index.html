@@ -1,76 +1,82 @@
+
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tina's Magical World</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Fredoka', sans-serif;
-      background: #fff0f6;
-      color: #333;
+      font-family: 'Baloo 2', cursive;
+      background: linear-gradient(to bottom, #ffe6f0, #ffe0f5);
       text-align: center;
+      color: #d63384;
     }
     h1 {
+      font-size: 2.5em;
+      margin-top: 30px;
       color: #ff69b4;
-      font-size: 2.5rem;
-      margin-top: 20px;
     }
     .photo-frame {
-      margin: 20px auto;
+      border: 6px solid #ffb6c1;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 20px;
       padding: 10px;
-      background: #ffe4ec;
-      border: 5px dashed #ffb6c1;
-      border-radius: 20px;
-      width: 80%;
-      max-width: 300px;
+      background-color: #fff0f5;
     }
     .photo-frame img {
-      width: 100%;
-      border-radius: 15px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
     }
-    .birth-box, .timer-box, .player-box, .footer-text {
+    .box {
+      background-color: #fff0f5;
+      border: 3px dashed #ffb6c1;
+      border-radius: 20px;
       margin: 20px auto;
-      padding: 15px;
-      border-radius: 15px;
-      width: 85%;
+      padding: 10px;
+      width: 80%;
       max-width: 400px;
+      font-size: 1.2em;
     }
-    .birth-box {
-      background: #ffddee;
-      font-size: 1.1rem;
+    #timer {
+      font-size: 1.5em;
+      background-image: url('timer_background.png');
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 20px;
+      border-radius: 20px;
+      margin: 20px auto;
+      max-width: 500px;
     }
-    .timer-box {
-      background: #fff5fa;
-      color: #ff1493;
-      font-size: 1.5rem;
-      font-weight: bold;
-      box-shadow: 0 0 10px #ff69b4;
+    .time-unit {
+      background: #ff69b4;
+      border-radius: 10px;
+      margin: 5px;
+      padding: 10px;
+      min-width: 60px;
+      box-shadow: 0 0 10px #fff;
     }
-    .player-box {
-      background: #ffe4f2;
+    audio {
+      margin: 20px;
     }
     .footer-text {
-      font-size: 1rem;
-      color: #cc3366;
+      font-size: 1em;
+      color: #444;
+      margin: 30px 0 10px 0;
     }
-    .social-icons {
-      margin-top: 30px;
-    }
-    .social-icons a {
+    .social-icons img {
+      width: 24px;
       margin: 0 10px;
-      text-decoration: none;
-      color: #ff69b4;
-      font-size: 1.5rem;
     }
     .copyright {
-      font-size: 0.8rem;
+      font-size: 0.8em;
       color: black;
-      margin-top: 40px;
       margin-bottom: 10px;
     }
   </style>
@@ -78,56 +84,56 @@
 <body>
   <h1>Welcome to Tina's Magical World</h1>  <div class="photo-frame">
     <img src="tina.jpg" alt="Tina's Photo">
-  </div>  <div class="birth-box">
-    Tina was born on July 7, 2020
-  </div>  <div class="timer-box" id="ageTimer">
-    Loading Tina's age...
-  </div>  <div class="player-box">
-    <audio id="audioPlayer" controls>
-      <source src="I%20Love%20You.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>  <div class="footer-text">
+  </div>  <div class="box">
+    Birthdate: 2020.07.07 (11:05 AM - Tehran Time)
+  </div>  <div id="timer">
+    <div class="time-unit" id="years">0</div>
+    <div class="time-unit" id="months">0</div>
+    <div class="time-unit" id="days">0</div>
+    <div class="time-unit" id="hours">0</div>
+    <div class="time-unit" id="minutes">0</div>
+    <div class="time-unit" id="seconds">0</div>
+  </div>  <audio controls>
+    <source src="I Love You.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>  <div class="footer-text">
     This page is reserved for the beautiful future of Tina Jamshidi.
   </div>  <div class="social-icons">
-    <a href="https://instagram.com/Jamshidi.tina" target="_blank">📷</a>
-    <a href="mailto:Tinajamshidi@hotmail.com">✉️</a>
+    <a href="https://instagram.com/Jamshidi.tina" target="_blank">
+      <img src="instagram_icon.png" alt="Instagram">
+    </a>
+    <a href="mailto:Tinajamshidi@hotmail.com">
+      <img src="email_icon.png" alt="Email">
+    </a>
   </div>  <div class="copyright">
-    2020–<span id="yearNow"></span> | All Rights Reserved By NIKSYSTEM Co.
+    2020–<span id="year"></span> | All Rights Reserved By NIKSYSTEM Co.
   </div>  <script>
-    // Update current year
-    document.getElementById("yearNow").textContent = new Date().getFullYear();
-
-    // Iran time calculation (fixed offset UTC+3:30)
-    function getIranTime() {
-      const now = new Date();
-      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      return new Date(utc + 3.5 * 3600000);
-    }
-
-    const tinaBirth = new Date("2020-07-07T07:35:00Z"); // 11:05 IRDT = 07:35 UTC
+    const iranOffset = 3.5 * 60 * 60 * 1000; // Iran is UTC+3:30
+    const birth = new Date(Date.UTC(2020, 6, 7, 7, 35, 0));
 
     function updateTimer() {
-      const now = getIranTime();
-      let diff = now - tinaBirth;
+      const nowUTC = new Date();
+      const iranTime = new Date(nowUTC.getTime() + iranOffset);
+      let diff = iranTime - birth;
 
-      const y = Math.floor(diff / (365.25 * 24 * 3600 * 1000));
-      diff %= 365.25 * 24 * 3600 * 1000;
-      const mo = Math.floor(diff / (30.44 * 24 * 3600 * 1000));
-      diff %= 30.44 * 24 * 3600 * 1000;
-      const d = Math.floor(diff / (24 * 3600 * 1000));
-      diff %= 24 * 3600 * 1000;
-      const h = Math.floor(diff / (3600 * 1000));
-      diff %= 3600 * 1000;
-      const m = Math.floor(diff / (60 * 1000));
-      diff %= 60 * 1000;
-      const s = Math.floor(diff / 1000);
+      const years = iranTime.getUTCFullYear() - birth.getUTCFullYear();
+      const months = iranTime.getUTCMonth() - birth.getUTCMonth() + (years * 12);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = iranTime.getUTCHours();
+      const minutes = iranTime.getUTCMinutes();
+      const seconds = iranTime.getUTCSeconds();
 
-      document.getElementById("ageTimer").textContent =
-        `${y}y ${mo}m ${d}d ${h}h ${m}m ${s}s`;
+      document.getElementById('years').textContent = years;
+      document.getElementById('months').textContent = months % 12;
+      document.getElementById('days').textContent = days % 30;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
     }
 
     setInterval(updateTimer, 1000);
     updateTimer();
+
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script></body>
 </html>
