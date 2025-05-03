@@ -2,99 +2,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tina Jamshidi</title>
+  <title>Tina's Magical World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(to bottom right, #ffe6f0, #ffe4d6);
+      padding: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: #fff0f6;
+      color: #333;
       text-align: center;
-      color: #7a2f63;
     }
     h1 {
-      margin-top: 20px;
+      color: #ff69b4;
       font-size: 2.5rem;
+      margin-top: 20px;
     }
-    .image-container {
-      max-width: 90%;
-      margin: 10px auto;
-    }
-    img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    .timer {
-      font-size: 1.2rem;
-      background: #fff0f6;
-      padding: 15px;
+    .photo-frame {
       margin: 20px auto;
-      display: inline-block;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      background: #ffe4ec;
+      border: 5px dashed #ffb6c1;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 300px;
     }
-    .audio-player {
-      margin: 20px 0;
+    .photo-frame img {
+      width: 100%;
+      border-radius: 15px;
     }
-    .footer {
+    .birth-box, .timer-box, .player-box, .footer-text {
+      margin: 20px auto;
+      padding: 15px;
+      border-radius: 15px;
+      width: 85%;
+      max-width: 400px;
+    }
+    .birth-box {
+      background: #ffddee;
+      font-size: 1.1rem;
+    }
+    .timer-box {
+      background: #fff5fa;
+      color: #ff1493;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px #ff69b4;
+    }
+    .player-box {
+      background: #ffe4f2;
+    }
+    .footer-text {
+      font-size: 1rem;
+      color: #cc3366;
+    }
+    .social-icons {
       margin-top: 30px;
-      font-size: 0.9rem;
-      color: #995b8a;
     }
-    a {
-      color: #d46a92;
-      text-decoration: none;
+    .social-icons a {
       margin: 0 10px;
+      text-decoration: none;
+      color: #ff69b4;
+      font-size: 1.5rem;
     }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      .timer {
-        font-size: 1rem;
-      }
+    .copyright {
+      font-size: 0.8rem;
+      color: black;
+      margin-top: 40px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <h1>Tina Jamshidi</h1>
-  <div class="image-container">
-    <img src="tina.jpg" alt="Tina's photo" />
-  </div>
-  <div class="timer" id="ageTimer">Loading...</div>
-  <div class="audio-player">
-    <audio controls>
-      <source src="I Love You.mp3" type="audio/mpeg" />
+  <h1>Welcome to Tina's Magical World</h1>  <div class="photo-frame">
+    <img src="tina.jpg" alt="Tina's Photo">
+  </div>  <div class="birth-box">
+    Tina was born on July 7, 2020
+  </div>  <div class="timer-box" id="ageTimer">
+    Loading Tina's age...
+  </div>  <div class="player-box">
+    <audio id="audioPlayer" controls>
+      <source src="I%20Love%20You.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-  </div>
-  <p>You are the light of our life, Tina. May your future shine forever!</p>
-  <div class="footer">
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-    <a href="mailto:tina@example.com">Email</a>
-    <p>&copy; <span id="year"></span> Tina's World</p>
+  </div>  <div class="footer-text">
+    This page is reserved for the beautiful future of Tina Jamshidi.
+  </div>  <div class="social-icons">
+    <a href="https://instagram.com/Jamshidi.tina" target="_blank">📷</a>
+    <a href="mailto:Tinajamshidi@hotmail.com">✉️</a>
+  </div>  <div class="copyright">
+    2020–<span id="yearNow"></span> | All Rights Reserved By NIKSYSTEM Co.
   </div>  <script>
-    const birthday = new Date("2020-07-07T00:00:00+03:30"); // Iran time
-    const timerEl = document.getElementById("ageTimer");
+    // Update current year
+    document.getElementById("yearNow").textContent = new Date().getFullYear();
 
-    function updateTimer() {
+    // Iran time calculation (fixed offset UTC+3:30)
+    function getIranTime() {
       const now = new Date();
-      const diff = now - birthday;
-
-      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-      const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-      const hours = now.getHours();
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-
-      timerEl.innerHTML = `Age: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      return new Date(utc + 3.5 * 3600000);
     }
 
-    updateTimer();
-    setInterval(updateTimer, 1000);
+    const tinaBirth = new Date("2020-07-07T07:35:00Z"); // 11:05 IRDT = 07:35 UTC
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    function updateTimer() {
+      const now = getIranTime();
+      let diff = now - tinaBirth;
+
+      const y = Math.floor(diff / (365.25 * 24 * 3600 * 1000));
+      diff %= 365.25 * 24 * 3600 * 1000;
+      const mo = Math.floor(diff / (30.44 * 24 * 3600 * 1000));
+      diff %= 30.44 * 24 * 3600 * 1000;
+      const d = Math.floor(diff / (24 * 3600 * 1000));
+      diff %= 24 * 3600 * 1000;
+      const h = Math.floor(diff / (3600 * 1000));
+      diff %= 3600 * 1000;
+      const m = Math.floor(diff / (60 * 1000));
+      diff %= 60 * 1000;
+      const s = Math.floor(diff / 1000);
+
+      document.getElementById("ageTimer").textContent =
+        `${y}y ${mo}m ${d}d ${h}h ${m}m ${s}s`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
   </script></body>
 </html>
