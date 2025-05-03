@@ -4,17 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tina's Magical Page</title>
-
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('unicorn-animated.gif') no-repeat center center fixed;
+      background: url('unicorn-bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       text-align: center;
     }
-
     .container {
       background-color: rgba(255, 182, 193, 0.6);
       padding: 30px;
@@ -23,60 +21,28 @@
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-
     h1 {
       font-size: 2.5em;
       color: #ff69b4;
     }
-
     img {
       width: 200px;
       border-radius: 50%;
       margin-top: 20px;
       border: 5px solid white;
     }
-
-    #ageDisplay {
-      margin-top: 20px;
-      font-size: 1.3em;
-      font-weight: bold;
-      padding: 10px;
-      border-radius: 12px;
-    }
-
-    .neon-text {
-      color: #fff;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #ff69b4,
-        0 0 30px #ff69b4,
-        0 0 40px #ff69b4,
-        0 0 55px #ff69b4,
-        0 0 75px #ff69b4;
-      animation: flicker 1.5s infinite alternate;
-    }
-
-    @keyframes flicker {
-      from { opacity: 1; }
-      to { opacity: 0.85; }
-    }
-
     p {
       font-size: 1em;
       color: #d85f22;
     }
-
     .icon-row {
       text-align: center;
       margin-top: 20px;
     }
-
     .icon-row a {
       display: inline-block;
       margin: 0 8px;
     }
-
     .icon {
       width: 24px;
       height: 24px;
@@ -85,28 +51,59 @@
       transition: transform 0.2s ease;
       vertical-align: middle;
     }
-
     .icon:hover {
       transform: scale(1.3);
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <h1>Welcome to Tina's Magical World!</h1>
     <img src="tina.jpg" alt="Tina's Photo">
-    <div id="ageDisplay" class="neon-text"></div>
+ <div id="ageDisplay" style="margin-top: 20px; font-size: 14px; color: #ffffff; font-weight: bold; background-color: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px;"></div>
+
+<script>
+  const birthDate = new Date("2020-07-07T11:05:00");
+
+  function updateAge() {
+    const now = new Date();
+    let diff = now - birthDate;
+
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    diff -= years * 1000 * 60 * 60 * 24 * 365.25;
+
+    const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+    diff -= months * 1000 * 60 * 60 * 24 * 30.44;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * 1000 * 60 * 60 * 24;
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * 1000 * 60 * 60;
+
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * 1000 * 60;
+
+    const seconds = Math.floor(diff / 1000);
+
+    document.getElementById("ageDisplay").textContent =
+      `Tina's Age: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  setInterval(updateAge, 1000);
+  updateAge();
+</script>  
     <p>"This page is reserved for the beautiful future of Tina Jamshidi."</p>
   </div>
 
   <!-- SEO Hidden Text for Google -->
   <div style="position: absolute; left: -9999px; top: -9999px;">
-    تینا جمشیدی
-    Tina Jamshidi
-    Tina Jamshidy
-    TINA JAMSHIDI
-    tinajamshidi
+    تینا جمشیدی  
+    تینا جمشی  
+    Tina Jamshidi  
+    Tina Jamshidy  
+    TINA JAMSHIDI  
+    tinajamshidi  
   </div>
 
   <!-- Contact Icons -->
@@ -126,37 +123,9 @@
     </p>
   </div>
 
-  <!-- JavaScript -->
   <script>
-    // ساعت رسمی ایران بدون DST
-    const birthDate = new Date(Date.UTC(2020, 6, 7, 7, 35, 0)); // 11:05 IRST = 07:35 UTC
-
-    function updateAge() {
-      const now = new Date();
-      const iranOffset = 3.5 * 60 * 60 * 1000; // IRST without DST
-      const iranNow = new Date(now.getTime() + iranOffset - now.getTimezoneOffset() * 60000);
-
-      let diff = iranNow - birthDate;
-      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-      diff -= years * 1000 * 60 * 60 * 24 * 365.25;
-      const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
-      diff -= months * 1000 * 60 * 60 * 24 * 30.44;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      diff -= days * 1000 * 60 * 60 * 24;
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      diff -= hours * 1000 * 60 * 60;
-      const minutes = Math.floor(diff / (1000 * 60));
-      diff -= minutes * 1000 * 60;
-      const seconds = Math.floor(diff / 1000);
-
-      document.getElementById("ageDisplay").textContent =
-        `Tina's Age: ${years}y ${months}m ${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateAge, 1000);
-    updateAge();
-
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+<!-- طراحی و بارگذاری این سایت در تاریخ ۱۱ اردیبهشت ۱۴۰۴ توسط سعید جمشیدی با همکاری چت جی پی تی انجام شده است -->
