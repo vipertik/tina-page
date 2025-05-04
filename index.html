@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,122 +11,141 @@
       margin: 0;
       padding: 20px;
       text-align: center;
-    }.welcome-box {
-  padding: 20px;
-  border: 3px solid #f06292;
-  border-radius: 15px;
-  background: #ffe6ef;
-  display: inline-block;
-  margin-bottom: 20px;
-}
+    }
+    .welcome-box {
+      padding: 20px;
+      border: 3px solid #f06292;
+      border-radius: 15px;
+      background: #ffe6ef;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-.welcome-box h1 {
-  color: #f06292;
-  font-size: 28px;
-  margin: 0;
-}
+    .welcome-box h1 {
+      color: #f06292;
+      font-size: 28px;
+      margin: 0;
+    }
 
-.tina-image {
-  width: 200px;
-  height: auto;
-  border: 5px solid #ffb6c1;
-  border-radius: 20px;
-  margin: 20px auto;
-  display: block;
-  box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-}
+    .tina-image {
+      width: 200px;
+      height: auto;
+      border: 5px solid #ffb6c1;
+      border-radius: 20px;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    }
 
-.birth-box,
-.timer-box,
-.music-box {
-  background: #fff0f5;
-  border: 2px solid #f06292;
-  border-radius: 15px;
-  padding: 15px;
-  margin: 15px auto;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 10px rgba(240, 98, 146, 0.2);
-}
+    .birth-box,
+    .timer-box,
+    .music-box {
+      background: #fff0f5;
+      border: 2px solid #f06292;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 15px auto;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(240, 98, 146, 0.2);
+    }
 
-#age {
-  font-family: monospace;
-  font-size: 20px;
-  color: #ba2d65;
-}
+    #age {
+      font-family: monospace;
+      font-size: 20px;
+      color: #ba2d65;
+    }
 
-.music-box p {
-  font-size: 18px;
-  color: #d81b60;
-}
+    .music-box p {
+      font-size: 18px;
+      color: #d81b60;
+    }
 
-.music-box audio {
-  width: 100%;
-  max-width: 300px;
-}
+    .music-box audio {
+      width: 100%;
+      max-width: 300px;
+    }
 
-.footer-line {
-  font-size: 18px;
-  color: #6a1b9a;
-  font-style: italic;
-  margin-top: 30px;
-}
+    .footer-line {
+      font-size: 18px;
+      color: #6a1b9a;
+      font-style: italic;
+      margin-top: 30px;
+    }
 
-.social-icons {
-  margin-top: 30px;
-}
+    .social-icons {
+      margin-top: 30px;
+    }
 
-.social-icons img {
-  width: 30px;
-  height: 30px;
-  margin: 0 10px;
-  opacity: 0.8;
-  transition: 0.3s;
-}
+    .social-icons img {
+      width: 30px;
+      height: 30px;
+      margin: 0 10px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
 
-.social-icons img:hover {
-  opacity: 1;
-}
+    .social-icons img:hover {
+      opacity: 1;
+    }
 
-.copyright {
-  font-size: 9px;
-  color: #000;
-  margin-top: 40px;
-}
-body {
-  background-color: #FFF0F6;
-  margin: 0;
-  font-family: sans-serif;
-}
+    .copyright {
+      font-size: 9px;
+      color: #000;
+      margin-top: 40px;
+    }
+
+    body {
+      background-color: #FFF0F6;
+      margin: 0;
+      font-family: sans-serif;
+    }
   </style>
 </head>
-<body>  <div class="welcome-box">
+<body>
+  <div class="welcome-box">
     <h1>Welcome to Tina's Magical World</h1>
-  </div>  <img src="tina1.jpg" alt="Tina" class="tina-image" />  <div class="birth-box">
-    <p>Born on:   07,07,2020
-  </div>  <div class="timer-box">
+  </div>
+
+  <img src="tina1.jpg" alt="Tina" class="tina-image" />
+
+  <div class="birth-box">
+    <p>Born on: 07.07.2020</p>
+  </div>
+
+  <div class="timer-box">
     <p>Tina's Age:</p>
     <p id="age"></p>
-  </div>  <div class="music-box">
+  </div>
+
+  <div class="music-box">
     <p>Play Tina's special song:</p>
     <audio controls>
       <source src="I Love You.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-  </div>  <p class="footer-line">
+  </div>
+
+  <p class="footer-line">
     "This page is reserved for the beautiful future of Tina Jamshidi."
-  </p>  <div class="social-icons">
+  </p>
+
+  <div class="social-icons">
     <a href="https://instagram.com/Jamshidi.tina" target="_blank">
       <img src="instagram.jpg" alt="Instagram" />
     </a>
     <a href="mailto:Tinajamshidi@hotmail.com">
       <img src="Jpg.jpg" alt="Email" />
     </a>
-  </div>  <p class="copyright" id="copyright"></p>  <script>
+  </div>
+
+  <p class="copyright" id="copyright"></p>
+
+  <script>
     function updateAge() {
       const iranOffset = 3.5 * 60; // UTC+3:30
       const iranNow = new Date(new Date().getTime() + (iranOffset - new Date().getTimezoneOffset()) * 60000);
-      const birth = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 11:05 IRST = 07:35 UTC
+      const birth = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 07:35 UTC = 11:05 IRST
       let diff = iranNow - birth;
 
       const seconds = Math.floor(diff / 1000);
@@ -142,13 +162,12 @@ body {
       document.getElementById("age").textContent =
         `${years}y ${months}m ${remDays}d ${remHours}h ${remMinutes}m ${remSeconds}s`;
     }
+
     setInterval(updateAge, 1000);
 
     const year = new Date().getFullYear();
     document.getElementById("copyright").textContent = `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
-  </script></body>
-</html>
-  </div>
+  </script>
 
   <!-- SEO Hidden Text for Google -->
   <div style="position: absolute; left: -9999px; top: -9999px;">
@@ -159,7 +178,7 @@ body {
     TINA JAMSHIDI  
     tinajamshidi  
   </div>
-    </script>
+
+  <!-- طراحی و بارگذاری این سایت در تاریخ ۱۱ اردیبهشت ۱۴۰۴ توسط سعید جمشیدی با همکاری چت جی پی تی انجام شده است -->
 </body>
 </html>
-<!-- طراحی و بارگذاری این سایت در تاریخ ۱۱ اردیبهشت ۱۴۰۴ توسط سعید جمشیدی با همکاری چت جی پی تی انجام شده است -->
