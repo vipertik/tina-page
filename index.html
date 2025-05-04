@@ -94,15 +94,10 @@
       color: #000;
       margin-top: 40px;
     }
-
-    body {
-      background-color: #FFF0F6;
-      margin: 0;
-      font-family: sans-serif;
-    }
   </style>
 </head>
 <body>
+
   <div class="welcome-box">
     <h1>Welcome to Tina's Magical World</h1>
   </div>
@@ -110,7 +105,7 @@
   <img src="tina1.jpg" alt="Tina" class="tina-image" />
 
   <div class="birth-box">
-    <p>Born on: 07.07.2020</p>
+    <p>Born on: 07,07,2020</p>
   </div>
 
   <div class="timer-box">
@@ -143,10 +138,11 @@
 
   <script>
     function updateAge() {
-      const iranOffset = 3.5 * 60; // UTC+3:30
-      const iranNow = new Date(new Date().getTime() + (iranOffset - new Date().getTimezoneOffset()) * 60000);
-      const birth = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 07:35 UTC = 11:05 IRST
-      let diff = iranNow - birth;
+      const iranTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Tehran" });
+      const iranNow = new Date(iranTime);
+      const birth = new Date("2020-07-07T11:05:00+03:30");
+
+      const diff = iranNow - birth;
 
       const seconds = Math.floor(diff / 1000);
       const minutes = Math.floor(seconds / 60);
@@ -180,5 +176,6 @@
   </div>
 
   <!-- طراحی و بارگذاری این سایت در تاریخ ۱۱ اردیبهشت ۱۴۰۴ توسط سعید جمشیدی با همکاری چت جی پی تی انجام شده است -->
+
 </body>
 </html>
