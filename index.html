@@ -144,13 +144,11 @@
   <script>
     function updateAge() {
       const now = new Date();
-      const iranOffset = 3.5 * 60;
-      const localOffset = now.getTimezoneOffset();
-      const diffMinutes = iranOffset - localOffset;
-      const iranTime = new Date(now.getTime() + diffMinutes * 60000);
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const tehranTime = new Date(utc + (3.5 * 60 * 60 * 1000)); // UTC+3:30
 
       const birthTehran = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 11:05 IRST = 07:35 UTC
-      let diff = iranTime - birthTehran;
+      const diff = tehranTime - birthTehran;
 
       const seconds = Math.floor(diff / 1000);
       const minutes = Math.floor(seconds / 60);
@@ -174,7 +172,6 @@
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
-  <!-- SEO Hidden Text for Google -->
   <div style="position: absolute; left: -9999px; top: -9999px;">
     تینا جمشیدی  
     تینا جمشی  
