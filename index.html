@@ -41,8 +41,8 @@
     .birth-box,
     .timer-box,
     .quote-box,
-    .music-box,
-    .footer-box {
+    .footer-box,
+    .music-box {
       background: #fff0f5;
       border: 2px solid #f06292;
       border-radius: 15px;
@@ -54,10 +54,7 @@
     }
 
     .footer-box {
-      background: #ffd6e7;
-      font-size: 13px;
-      color: #6a1b9a;
-      font-style: italic;
+      background: #ffd6e6; /* کمی پررنگ‌تر از بقیه */
     }
 
     #age {
@@ -128,7 +125,7 @@
   </div>
 
   <div class="footer-box">
-    "This page is reserved for the beautiful future of Tina Jamshidi."
+    <p>This page is reserved for the beautiful future of Tina Jamshidi.</p>
   </div>
 
   <div class="social-icons">
@@ -143,18 +140,30 @@
   <p class="copyright" id="copyright"></p>
 
   <script>
+    function getTehranDate() {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Tehran',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+
+      const parts = formatter.formatToParts(now);
+      const get = (type) => parts.find(p => p.type === type)?.value || '00';
+      const tehranString = `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}`;
+      return new Date(tehranString);
+    }
+
     function updateAge() {
-      // ساعت کنونی در UTC
-      const nowUTC = new Date();
+      const tehranNow = getTehranDate();
+      const birthDateTehran = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 11:05 IRST = 07:35 UTC
 
-      // تبدیل به ساعت تهران (UTC+3:30)
-      const tehranTime = new Date(nowUTC.getTime() + (3.5 * 60 * 60 * 1000));
-
-      // تاریخ تولد تینا در ساعت تهران (۷ جولای ۲۰۲۰ - ساعت ۱۱:۰۵ صبح تهران)
-      const birthTimeTehran = new Date(Date.UTC(2020, 6, 7, 7, 35)); // یعنی 11:05 به وقت تهران
-
-      const diff = tehranTime - birthTimeTehran;
-
+      let diff = tehranNow - birthDateTehran;
       const seconds = Math.floor(diff / 1000);
       const minutes = Math.floor(seconds / 60);
       const hours = Math.floor(minutes / 60);
@@ -177,7 +186,7 @@
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
-  <!-- SEO Hidden Text -->
+  <!-- SEO Hidden Text for Google -->
   <div style="position: absolute; left: -9999px; top: -9999px;">
     تینا جمشیدی  
     تینا جمشی  
