@@ -12,6 +12,7 @@
       padding: 20px;
       text-align: center;
     }
+
     .welcome-box {
       padding: 20px;
       border: 3px solid #f06292;
@@ -39,6 +40,7 @@
 
     .birth-box,
     .timer-box,
+    .quote-box,
     .music-box {
       background: #fff0f5;
       border: 2px solid #f06292;
@@ -97,7 +99,6 @@
   </style>
 </head>
 <body>
-
   <div class="welcome-box">
     <h1>Welcome to Tina's Magical World</h1>
   </div>
@@ -111,6 +112,10 @@
   <div class="timer-box">
     <p>Tina's Age:</p>
     <p id="age"></p>
+  </div>
+
+  <div class="quote-box">
+    <p>Daughter, always remember, you are braver than you believe, stronger than you think, and loved more than you know</p>
   </div>
 
   <div class="music-box">
@@ -138,11 +143,14 @@
 
   <script>
     function updateAge() {
-      const iranTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Tehran" });
-      const iranNow = new Date(iranTime);
-      const birth = new Date("2020-07-07T11:05:00+03:30");
+      const now = new Date();
+      const iranOffset = 3.5 * 60;
+      const localOffset = now.getTimezoneOffset();
+      const diffMinutes = iranOffset - localOffset;
+      const iranTime = new Date(now.getTime() + diffMinutes * 60000);
 
-      const diff = iranNow - birth;
+      const birthTehran = new Date(Date.UTC(2020, 6, 7, 7, 35)); // 11:05 IRST = 07:35 UTC
+      let diff = iranTime - birthTehran;
 
       const seconds = Math.floor(diff / 1000);
       const minutes = Math.floor(seconds / 60);
@@ -162,7 +170,8 @@
     setInterval(updateAge, 1000);
 
     const year = new Date().getFullYear();
-    document.getElementById("copyright").textContent = `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
+    document.getElementById("copyright").textContent =
+      `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
   <!-- SEO Hidden Text for Google -->
@@ -174,8 +183,5 @@
     TINA JAMSHIDI  
     tinajamshidi  
   </div>
-
-  <!-- طراحی و بارگذاری این سایت در تاریخ ۱۱ اردیبهشت ۱۴۰۴ توسط سعید جمشیدی با همکاری چت جی پی تی انجام شده است -->
-
 </body>
 </html>
