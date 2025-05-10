@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tina's Magical World</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="manifest" href="manifest.json" />
+
+  <!-- PWA Support -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f06292">
+  <link rel="apple-touch-icon" href="icon-192.png">
 
   <!-- SEO Tags -->
   <meta name="description" content="Welcome to Tina Jamshidi's magical world – a sweet place filled with love, music, and colorful dreams.">
@@ -185,19 +189,6 @@
     const year = new Date().getFullYear();
     document.getElementById("copyright").textContent =
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
-  </script>
-
-  <!-- Service Worker Register -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(function(reg) {
-          console.log('Service Worker registered.', reg);
-        })
-        .catch(function(err) {
-          console.error('Service Worker registration failed:', err);
-        });
-    }
   </script>
 
   <!-- SEO Hidden Text -->
