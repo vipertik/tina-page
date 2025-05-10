@@ -34,7 +34,7 @@
       }
     }
 
-    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons {
+    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .gallery-box, .social-icons {
       background: #ffe6ef;
       border: 2px solid #ff4da6;
       border-radius: 15px;
@@ -80,6 +80,21 @@
     .music-box audio {
       width: 100%;
       max-width: 300px;
+    }
+
+    .gallery-box p {
+      font-size: 18px;
+      color: #d81b60;
+    }
+
+    .gallery-box a {
+      text-decoration: none;
+      color: #d81b60;
+      font-weight: bold;
+    }
+
+    .gallery-box a:hover {
+      color: #c2185b;
     }
 
     .footer-line {
@@ -142,6 +157,11 @@
       <source src="i_love_you.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
+  </div>
+
+  <!-- NEW: Gallery Link Box -->
+  <div class="gallery-box fade-in-up">
+    <p><a href="gallery.html">View Tina's Art Gallery</a></p>
   </div>
 
   <div class="social-icons fade-in-up">
