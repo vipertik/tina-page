@@ -40,7 +40,7 @@
       }
     }
 
-    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons {
+    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons, .gallery-link {
       background: #ffe6ef;
       border: 2px solid #ff4da6;
       border-radius: 15px;
@@ -115,7 +115,6 @@
       margin-top: 40px;
     }
 
-    /* استایل لینک گالری */
     .gallery-link a {
       font-size: 20px;
       color: #ff69b4;
@@ -154,6 +153,10 @@
     </p>
   </div>
 
+  <div class="gallery-link fade-in-up">
+    <a href="gallery.html">View Tina's Paintings Gallery</a>
+  </div>
+
   <div class="music-box fade-in-up">
     <p>Play Tina's special song:</p>
     <audio controls>
@@ -169,10 +172,6 @@
     <a href="mailto:Tinajamshidi@hotmail.com">
       <img src="email.png" alt="Email" />
     </a>
-  </div>
-
-  <div class="gallery-link fade-in-up">
-    <a href="gallery.html">View Tina's Paintings Gallery</a>
   </div>
 
   <p class="copyright" id="copyright"></p>
@@ -209,7 +208,6 @@
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
-  <!-- Service Worker Register -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
@@ -222,7 +220,7 @@
     }
   </script>
 
-  <!-- SEO Hidden Text -->
+  <!-- Hidden SEO Text -->
   <div style="position: absolute; left: -9999px; top: -9999px;">
     تینا جمشیدی  
     تینا جمشی  
