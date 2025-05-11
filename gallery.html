@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tina's Paintings Gallery</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff3f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #f06292;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .gallery-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .painting {
+      background-color: #ffe6ef;
+      border-radius: 15px;
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      width: 250px;
+      overflow: hidden;
+    }
+
+    .painting img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .painting h3 {
+      font-size: 18px;
+      color: #ba2d65;
+    }
+
+    .navigation {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+
+    .navigation a {
+      color: #ff69b4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .navigation a:hover {
+      background-color: #ffb6c1;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tina's Magical Paintings Gallery</h1>
+  
+  <div class="gallery-container">
+    <!-- عکس‌های نقاشی به صورت خودکار بارگذاری می‌شوند -->
+    <div class="painting">
+      <img src="paintings/1.jpg" alt="Painting 1" />
+      <h3>Painting 1</h3>
+    </div>
+    <div class="painting">
+      <img src="paintings/2.jpg" alt="Painting 2" />
+      <h3>Painting 2</h3>
+    </div>
+    <div class="painting">
+      <img src="paintings/3.jpg" alt="Painting 3" />
+      <h3>Painting 3</h3>
+    </div>
+    <div class="painting">
+      <img src="paintings/4.jpg" alt="Painting 4" />
+      <h3>Painting 4</h3>
+    </div>
+    <div class="painting">
+      <img src="paintings/5.jpg" alt="Painting 5" />
+      <h3>Painting 5</h3>
+    </div>
+    <!-- این بخش می‌تواند ادامه پیدا کند... -->
+  </div>
+
+  <div class="navigation">
+    <a href="index.html">Back to Tina's Magical World</a>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2020–<?php echo date("Y"); ?> | All Rights Reserved By NIKSYSTEM Co.</p>
+  </div>
+
+</body>
+</html>
