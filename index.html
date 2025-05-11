@@ -6,7 +6,6 @@
   <title>Tina's Magical World</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="manifest.json" />
-
   <meta name="theme-color" content="#ff69b4" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -46,12 +45,7 @@
       margin: 15px auto;
       width: 90%;
       max-width: 400px;
-      box-shadow:
-        0 0 1px #ffb6c1,
-        0 0 2px #ffb6c1,
-        0 0 4px #ff69b4;
-      position: relative;
-      z-index: 2;
+      box-shadow: 0 0 4px #ff69b4;
     }
 
     .welcome-box h1 {
@@ -67,9 +61,7 @@
       border-radius: 20px;
       margin: 20px auto;
       display: block;
-      box-shadow:
-        0 0 3px rgba(255, 182, 193, 0.3),
-        0 0 5px #ff69b4;
+      box-shadow: 0 0 5px #ff69b4;
     }
 
     #age {
@@ -109,21 +101,18 @@
       opacity: 1;
     }
 
+    .gallery-link a {
+      font-size: 22px;
+      color: #d81b60 !important;
+      text-decoration: underline;
+      font-weight: bold;
+      display: inline-block;
+    }
+
     .copyright {
       font-size: 9px;
       color: #000;
       margin-top: 40px;
-    }
-
-    .gallery-link a {
-      font-size: 20px;
-      color: #ff69b4;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .gallery-link a:hover {
-      color: #ba2d65;
     }
   </style>
 </head>
@@ -147,10 +136,6 @@
     <p>Tina, your laughter is our favorite song, and your smile is the sunshine that warms our hearts every day.</p>
   </div>
 
-  <div class="gallery-link fade-in-up">
-    <a href="gallery.html">View Tina's Paintings Gallery</a>
-  </div>
-
   <div class="footer-box fade-in-up">
     <p style="font-size: 15px; color: #6a1b9a; font-style: italic;">
       "This page is reserved for the beautiful future of Tina Jamshidi."
@@ -172,6 +157,10 @@
     <a href="mailto:Tinajamshidi@hotmail.com">
       <img src="email.png" alt="Email" />
     </a>
+  </div>
+
+  <div class="gallery-link fade-in-up">
+    <a href="gallery.html">View Tina's Paintings Gallery</a>
   </div>
 
   <p class="copyright" id="copyright"></p>
