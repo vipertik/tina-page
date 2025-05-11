@@ -40,7 +40,7 @@
       }
     }
 
-    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons {
+    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons, .gallery-link-box {
       background: #ffe6ef;
       border: 2px solid #ff4da6;
       border-radius: 15px;
@@ -109,23 +109,22 @@
       opacity: 1;
     }
 
+    .copyright {
+      font-size: 9px;
+      color: #000;
+      margin-top: 40px;
+    }
+
+    /* استایل لینک گالری */
     .gallery-link a {
       font-size: 20px;
       color: #ff69b4;
       text-decoration: none;
       font-weight: bold;
-      display: inline-block;
-      margin-top: 10px;
     }
 
     .gallery-link a:hover {
       color: #ba2d65;
-    }
-
-    .copyright {
-      font-size: 9px;
-      color: #000;
-      margin-top: 40px;
     }
   </style>
 </head>
@@ -172,7 +171,8 @@
     </a>
   </div>
 
-  <div class="gallery-link fade-in-up">
+  <!-- New box for the gallery link -->
+  <div class="gallery-link-box fade-in-up">
     <a href="gallery.html">View Tina's Paintings Gallery</a>
   </div>
 
@@ -210,6 +210,7 @@
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
+  <!-- Service Worker Register -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js')
