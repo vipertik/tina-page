@@ -109,23 +109,22 @@
       opacity: 1;
     }
 
-    .gallery-link {
-      font-size: 18px;
-      color: #d81b60;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      transition: 0.3s;
-    }
-
-    .gallery-link:hover {
-      color: #ad1457;
-    }
-
     .copyright {
       font-size: 9px;
       color: #000;
       margin-top: 40px;
+    }
+
+    /* استایل لینک گالری */
+    .gallery-link a {
+      font-size: 20px;
+      color: #ff69b4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .gallery-link a:hover {
+      color: #ba2d65;
     }
   </style>
 </head>
@@ -149,10 +148,6 @@
     <p>Tina, your laughter is our favorite song, and your smile is the sunshine that warms our hearts every day.</p>
   </div>
 
-  <div class="fade-in-up">
-    <a href="gallery.html" class="gallery-link">View Tina's Paintings</a>
-  </div>
-
   <div class="footer-box fade-in-up">
     <p style="font-size: 15px; color: #6a1b9a; font-style: italic;">
       "This page is reserved for the beautiful future of Tina Jamshidi."
@@ -174,6 +169,10 @@
     <a href="mailto:Tinajamshidi@hotmail.com">
       <img src="email.png" alt="Email" />
     </a>
+  </div>
+
+  <div class="gallery-link fade-in-up">
+    <a href="gallery.html">View Tina's Paintings Gallery</a>
   </div>
 
   <p class="copyright" id="copyright"></p>
