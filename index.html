@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -26,8 +26,14 @@
       padding: 20px;
       text-align: center;
     }
-    .fade-in-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 2s ease-out forwards; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 2s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
     .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons {
       background: #ffe6ef;
       border: 2px solid #ff4da6;
@@ -40,20 +46,38 @@
     }
     .welcome-box h1 { color: #f06292; font-size: 28px; margin: 0; }
     .tina-image {
-      width: 200px; height: auto; border: 5px solid #ffb6c1; border-radius: 20px;
-      margin: 20px auto; display: block;
+      width: 200px;
+      height: auto;
+      border: 5px solid #ffb6c1;
+      border-radius: 20px;
+      margin: 20px auto;
+      display: block;
       box-shadow: 0 0 3px rgba(255, 182, 193, 0.3), 0 0 5px #ff69b4;
     }
     #age { font-family: monospace; font-size: 20px; color: #ba2d65; }
     .music-box p { font-size: 18px; color: #d81b60; }
     .music-box audio { width: 100%; max-width: 300px; }
-    .footer-line { font-size: 16px; color: #6a1b9a; font-style: italic; margin-top: 30px; display: none; }
+    .footer-line {
+      font-size: 16px;
+      color: #6a1b9a;
+      font-style: italic;
+      margin-top: 30px;
+      display: none;
+    }
     .social-icons img {
-      width: 30px; height: 30px; margin: 0 10px; opacity: 0.8; transition: 0.3s;
+      width: 30px;
+      height: 30px;
+      margin: 0 10px;
+      opacity: 0.8;
+      transition: 0.3s;
       filter: drop-shadow(0 0 2px #ff69b4);
     }
     .social-icons img:hover { opacity: 1; }
-    .copyright { font-size: 9px; color: #000; margin-top: 40px; }
+    .copyright {
+      font-size: 9px;
+      color: #000;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -126,22 +150,28 @@
         `${years}y ${months}m ${remDays}d ${remHours}h ${remMinutes}m ${remSeconds}s`;
     }
     setInterval(updateAge, 1000);
-    updateAge();
+    const year = new Date().getFullYear();
     document.getElementById("copyright").textContent =
-      `2020–${new Date().getFullYear()} | All Rights Reserved By NIKSYSTEM Co.`;
+      `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
   <!-- Service Worker Register -->
   <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-      for (let reg of registrations) { reg.unregister(); }
-    }).finally(function() {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(function(reg) { console.log('Service Worker registered:', reg); })
-        .catch(function(err) { console.error('Service Worker registration failed:', err); });
-    });
-  }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let reg of registrations) {
+          reg.unregister();
+        }
+      }).finally(function() {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(function(reg) {
+            console.log('Service Worker registered:', reg);
+          })
+          .catch(function(err) {
+            console.error('Service Worker registration failed:', err);
+          });
+      });
+    }
   </script>
 
   <!-- SEO Hidden Text -->
