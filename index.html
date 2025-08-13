@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,18 +6,15 @@
   <title>Tina's Magical World</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="manifest" href="manifest.json" />
-
   <!-- PWA Meta -->
   <meta name="theme-color" content="#ff69b4" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-
   <!-- SEO Tags -->
   <meta name="description" content="Welcome to Tina Jamshidi's magical world – a sweet place filled with love, music, and colorful dreams." />
   <meta name="keywords" content="Tina, Tina Jamshidi, کودک, دختر, تینا جمشی, تینا جمشیدی, سایت تینا" />
   <meta name="author" content="NIKSYSTEM Co." />
-
   <style>
     body {
       font-family: arial, sans-serif;
@@ -53,8 +50,30 @@
       max-width: 400px;
       box-shadow: 0 0 1px #ffb6c1, 0 0 2px #ffb6c1, 0 0 4px #ff69b4;
     }
+    /* افکت نئون برای متن خوش‌آمدگویی */
+    .neon-text h1 {
+      color: #ff69b4;
+      text-shadow:
+        0 0 2px #ff69b4,
+        0 0 4px #ff85c1,
+        0 0 6px #ffb6c1;
+      animation: neonGlow 2s ease-in-out infinite;
+    }
+    @keyframes neonGlow {
+      0%, 100% {
+        text-shadow:
+          0 0 1px #ff69b4,
+          0 0 2px #ff85c1,
+          0 0 3px #ffb6c1;
+      }
+      50% {
+        text-shadow:
+          0 0 3px #ff69b4,
+          0 0 6px #ff85c1,
+          0 0 9px #ffb6c1;
+      }
+    }
     .welcome-box h1 {
-      color: #f06292;
       font-size: 28px;
       margin: 0;
     }
@@ -103,14 +122,13 @@
       color: #000;
       margin-top: 40px;
     }
-    /* لوگوی بالای کپی‌رایت */
     .logo-box {
       text-align: center;
-      margin-top: 5px; /* فاصله بالای کمتر */
-      margin-bottom: -5px; /* نزدیک‌تر شدن به کپی‌رایت */
+      margin-top: 5px;
+      margin-bottom: -5px;
     }
     .logo-box img {
-      width: 60px; /* بزرگ‌تر از قبل */
+      width: 60px;
       height: auto;
       display: inline-block;
       animation: blinkPurple 2.5s infinite ease-in-out;
@@ -128,31 +146,25 @@
   </style>
 </head>
 <body>
-  <div class="welcome-box fade-in-up">
+  <div class="welcome-box fade-in-up neon-text">
     <h1>Welcome to Tina's Magical World</h1>
   </div>
-
   <img src="tina1.jpg" alt="Tina" class="tina-image fade-in-up" />
-
   <div class="birth-box fade-in-up">
     <p>Born on: 2020,07,07</p>
   </div>
-
   <div class="timer-box fade-in-up">
     <p>Tina's Age:</p>
     <p id="age"></p>
   </div>
-
   <div class="quote-box fade-in-up">
     <p>Tina, your laughter is our favorite song, and your smile is the sunshine that warms our hearts every day.</p>
   </div>
-
   <div class="footer-box fade-in-up">
     <p style="font-size: 15px; color: #6a1b9a; font-style: italic;">
       "This page is reserved for the beautiful future of Tina Jamshidi."
     </p>
   </div>
-
   <div class="music-box fade-in-up">
     <p>Play Tina's special song:</p>
     <audio controls>
@@ -160,7 +172,6 @@
       Your browser does not support the audio element.
     </audio>
   </div>
-
   <div class="social-icons fade-in-up">
     <a href="https://instagram.com/Jamshidi.tina" target="_blank" rel="noopener noreferrer">
       <img src="instagram.png" alt="Instagram" />
@@ -172,11 +183,9 @@
       <img src="instagram1.png" alt="Instagram 2" />
     </a>
   </div>
-
   <div class="logo-box">
     <img src="niksystem.png" alt="NIKSYSTEM Logo" />
   </div>
-
   <p class="copyright" id="copyright"></p>
 
   <script>
@@ -203,7 +212,7 @@
     setInterval(updateAge, 1000);
     const year = new Date().getFullYear();
     document.getElementById("copyright").textContent =
-      `2020–${year} | All Rights Reserved By NIK SYSTEM Co.`;
+      `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
   <script>
@@ -234,11 +243,11 @@
     tinajamshidi
   </div>
 
-<!--
-این سایت در تاریخ یکم اردیبهشت ۱۴۰۴ در شرکت نیک سیستم و توسط سعید جمشیدی طراحی و اجرا گردیده است.
-باشد که بماند به یادگار
--->
+  <!-- کد مخفی -->
+  <!--
+  این سایت در تاریخ یکم" اردیبهشت ۱۴۰۴ در شرکت نیک سیستم و توسط سعید جمشیدی طراحی و اجرا گردیده است.
+  باشد که بماند به یادگار
+  -->
 
-  
 </body>
 </html>
