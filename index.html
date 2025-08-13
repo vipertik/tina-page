@@ -22,7 +22,6 @@
       margin: 0;
       padding: 20px;
       text-align: center;
-      overflow-x: hidden;
     }
     .fade-in-up {
       opacity: 0;
@@ -51,27 +50,26 @@
       max-width: 400px;
       box-shadow: 0 0 1px #ffb6c1, 0 0 2px #ffb6c1, 0 0 4px #ff69b4;
     }
-    /* افکت نئون اصلاح‌شده */
     .neon-text h1 {
       color: #ff69b4;
       text-shadow:
-        0 0 1px #fff,
-        0 0 2px #fff,
-        0 0 3px #fff;
+        0 0 2px #ffffff,
+        0 0 4px #ffffff,
+        0 0 6px #ffffff;
       animation: neonGlow 2s ease-in-out infinite;
     }
     @keyframes neonGlow {
       0%, 100% {
         text-shadow:
-          0 0 1px #fff,
-          0 0 2px #fff,
-          0 0 3px #fff;
+          0 0 1px #ffffff,
+          0 0 2px #ffffff,
+          0 0 3px #ffffff;
       }
       50% {
         text-shadow:
-          0 0 2px #fff,
-          0 0 3px #fff,
-          0 0 4px #fff;
+          0 0 3px #ffffff,
+          0 0 6px #ffffff,
+          0 0 9px #ffffff;
       }
     }
     .welcome-box h1 {
@@ -145,32 +143,23 @@
       }
     }
 
-    /* استایل پروانه */
+    /* پروانه */
     .butterfly {
       position: absolute;
-      top: 50px;
-      left: -100px;
-      width: 50px;
-      height: auto;
-      z-index: 999;
-      animation: fly 15s ease-in-out infinite;
+      width: 80px;
+      height: 80px;
+      background-image: url('butterfly.png'); /* عکس پروانه */
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: flap 0.4s infinite alternate ease-in-out;
+      transform: scaleX(-1); /* برعکس کردن جهت تا از سمت سر حرکت کند */
+      pointer-events: none;
+      z-index: 9999;
     }
-    @keyframes fly {
-      0% {
-        transform: translate(-100px, 0) rotate(0deg);
-      }
-      30% {
-        transform: translate(150px, 120px) rotate(10deg); /* روی گل‌ها میشینه */
-      }
-      40% {
-        transform: translate(150px, 120px) rotate(-10deg);
-      }
-      70% {
-        transform: translate(400px, -50px) rotate(15deg);
-      }
-      100% {
-        transform: translate(110vw, -200px) rotate(30deg);
-      }
+
+    @keyframes flap {
+      from { transform: scaleX(-1) rotate(5deg); }
+      to { transform: scaleX(-1) rotate(-5deg); }
     }
   </style>
 </head>
@@ -178,11 +167,7 @@
   <div class="welcome-box fade-in-up neon-text">
     <h1>Welcome to Tina's Magical World</h1>
   </div>
-
-  <!-- پروانه -->
-  <img src="butterfly.png" alt="Butterfly" class="butterfly" />
-
-  <img src="tina1.jpg" alt="Tina" class="tina-image fade-in-up" />
+  <img src="tina1.jpg" alt="Tina" class="tina-image fade-in-up" id="tinaPic" />
   <div class="birth-box fade-in-up">
     <p>Born on: 2020,07,07</p>
   </div>
@@ -221,6 +206,9 @@
   </div>
   <p class="copyright" id="copyright"></p>
 
+  <!-- پروانه -->
+  <div class="butterfly" id="butterfly"></div>
+
   <script>
     function updateAge() {
       const now = new Date();
@@ -246,6 +234,31 @@
     const year = new Date().getFullYear();
     document.getElementById("copyright").textContent =
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
+
+    // انیمیشن پرواز پروانه
+    const butterfly = document.getElementById('butterfly');
+    const tinaPic = document.getElementById('tinaPic');
+
+    function flyButterfly() {
+      const screenW = window.innerWidth;
+      const screenH = window.innerHeight;
+      let x = Math.random() * screenW;
+      let y = Math.random() * screenH;
+
+      butterfly.style.left = x + 'px';
+      butterfly.style.top = y + 'px';
+
+      setTimeout(() => {
+        // حرکت به سمت عکس تینا
+        const tinaRect = tinaPic.getBoundingClientRect();
+        butterfly.style.left = tinaRect.left + tinaRect.width / 2 + 'px';
+        butterfly.style.top = tinaRect.top + 'px';
+      }, 3000);
+
+      setTimeout(flyButterfly, 6000);
+    }
+
+    flyButterfly();
   </script>
 
   <script>
@@ -275,11 +288,5 @@
     TINA JAMSHIDI<br />
     tinajamshidi
   </div>
-
-  <!-- کد مخفی -->
-  <!--
-  این سایت در تاریخ یکم" اردیبهشت ۱۴۰۴ در شرکت نیک سیستم و توسط سعید جمشیدی طراحی و اجرا گردیده است.
-  باشد که بماند به یادگار
-  -->
 </body>
 </html>
