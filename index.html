@@ -4,19 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tina's Magical World</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="manifest" href="manifest.json" />
 
   <!-- PWA Meta -->
   <meta name="theme-color" content="#ff69b4" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png" />
 
   <!-- SEO Tags -->
-  <meta name="description" content="Welcome to Tina Jamshidi's magical world – a sweet place filled with love, music, and colorful dreams.">
-  <meta name="keywords" content="Tina, Tina Jamshidi, کودک, دختر, تینا جمشی, تینا جمشیدی, سایت تینا">
-  <meta name="author" content="NIKSYSTEM Co.">
+  <meta name="description" content="Welcome to Tina Jamshidi's magical world – a sweet place filled with love, music, and colorful dreams." />
+  <meta name="keywords" content="Tina, Tina Jamshidi, کودک, دختر, تینا جمشی, تینا جمشیدی, سایت تینا" />
+  <meta name="author" content="NIKSYSTEM Co." />
 
   <style>
     body {
@@ -32,9 +32,18 @@
       animation: fadeInUp 2s ease-out forwards;
     }
     @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .welcome-box, .birth-box, .timer-box, .quote-box, .footer-box, .music-box, .social-icons {
+    .welcome-box,
+    .birth-box,
+    .timer-box,
+    .quote-box,
+    .footer-box,
+    .music-box,
+    .social-icons {
       background: #ffe6ef;
       border: 2px solid #ff4da6;
       border-radius: 15px;
@@ -44,7 +53,11 @@
       max-width: 400px;
       box-shadow: 0 0 1px #ffb6c1, 0 0 2px #ffb6c1, 0 0 4px #ff69b4;
     }
-    .welcome-box h1 { color: #f06292; font-size: 28px; margin: 0; }
+    .welcome-box h1 {
+      color: #f06292;
+      font-size: 28px;
+      margin: 0;
+    }
     .tina-image {
       width: 200px;
       height: auto;
@@ -54,9 +67,19 @@
       display: block;
       box-shadow: 0 0 3px rgba(255, 182, 193, 0.3), 0 0 5px #ff69b4;
     }
-    #age { font-family: monospace; font-size: 20px; color: #ba2d65; }
-    .music-box p { font-size: 18px; color: #d81b60; }
-    .music-box audio { width: 100%; max-width: 300px; }
+    #age {
+      font-family: monospace;
+      font-size: 20px;
+      color: #ba2d65;
+    }
+    .music-box p {
+      font-size: 18px;
+      color: #d81b60;
+    }
+    .music-box audio {
+      width: 100%;
+      max-width: 300px;
+    }
     .footer-line {
       font-size: 16px;
       color: #6a1b9a;
@@ -72,7 +95,9 @@
       transition: 0.3s;
       filter: drop-shadow(0 0 2px #ff69b4);
     }
-    .social-icons img:hover { opacity: 1; }
+    .social-icons img:hover {
+      opacity: 1;
+    }
     .copyright {
       font-size: 9px;
       color: #000;
@@ -81,14 +106,25 @@
     /* لوگوی بالای کپی‌رایت */
     .logo-box {
       text-align: center;
-      margin-top: 5px;     /* فاصله بالای کمتر */
+      margin-top: 5px; /* فاصله بالای کمتر */
       margin-bottom: -5px; /* نزدیک‌تر شدن به کپی‌رایت */
     }
     .logo-box img {
       width: 60px; /* بزرگ‌تر از قبل */
       height: auto;
       display: inline-block;
-      filter: drop-shadow(0 0 2px #ff69b4);
+      animation: blinkPurple 2.5s infinite ease-in-out;
+    }
+    @keyframes blinkPurple {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 5px #9c27b0);
+        opacity: 1;
+      }
+      50% {
+        filter: drop-shadow(0 0 15px #7b1fa2);
+        opacity: 0.7;
+      }
     }
   </style>
 </head>
@@ -127,20 +163,19 @@
   </div>
 
   <div class="social-icons fade-in-up">
-    <a href="https://instagram.com/Jamshidi.tina" target="_blank">
+    <a href="https://instagram.com/Jamshidi.tina" target="_blank" rel="noopener noreferrer">
       <img src="instagram.png" alt="Instagram" />
     </a>
-    <a href="mailto:Tinajamshidi@hotmail.com">
+    <a href="mailto:Tinajamshidi@hotmail.com" rel="noopener noreferrer">
       <img src="email.png" alt="Email" />
     </a>
-    <a href="https://instagram.com/tinajamshidi.ir" target="_blank">
+    <a href="https://instagram.com/tinajamshidi.ir" target="_blank" rel="noopener noreferrer">
       <img src="instagram1.png" alt="Instagram 2" />
     </a>
   </div>
 
-  <!-- لوگوی بالای کپی‌رایت -->
   <div class="logo-box">
-    <img src="niksystem.png" alt="NIKSYSTEM Logo">
+    <img src="niksystem.png" alt="NIKSYSTEM Logo" />
   </div>
 
   <p class="copyright" id="copyright"></p>
@@ -172,7 +207,6 @@
       `2020–${year} | All Rights Reserved By NIKSYSTEM Co.`;
   </script>
 
-  <!-- Service Worker Register -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -192,13 +226,13 @@
   </script>
 
   <!-- SEO Hidden Text -->
-  <div style="position: absolute; left: -9999px; top: -9999px;">
-    تینا جمشیدی  
-    تینا جمشی  
-    Tina Jamshidi  
-    Tina Jamshidy  
-    TINA JAMSHIDI  
-    tinajamshidi  
+  <div style="position: absolute; left: -9999px; top: -9999px; user-select: none; line-height: 1;">
+    تینا جمشیدی<br />
+    تینا جمشی<br />
+    Tina Jamshidi<br />
+    Tina Jamshidy<br />
+    TINA JAMSHIDI<br />
+    tinajamshidi
   </div>
 </body>
 </html>
