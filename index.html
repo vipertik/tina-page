@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,6 +22,7 @@
       margin: 0;
       padding: 20px;
       text-align: center;
+      overflow-x: hidden;
     }
     .fade-in-up {
       opacity: 0;
@@ -50,27 +51,27 @@
       max-width: 400px;
       box-shadow: 0 0 1px #ffb6c1, 0 0 2px #ffb6c1, 0 0 4px #ff69b4;
     }
-    /* افکت نئون برای متن خوش‌آمدگویی */
+    /* افکت نئون اصلاح‌شده */
     .neon-text h1 {
       color: #ff69b4;
       text-shadow:
-        0 0 2px #ffffff,
-        0 0 4px #ffffff,
-        0 0 6px #ffffff;
+        0 0 1px #fff,
+        0 0 2px #fff,
+        0 0 3px #fff;
       animation: neonGlow 2s ease-in-out infinite;
     }
     @keyframes neonGlow {
       0%, 100% {
         text-shadow:
-          0 0 1px #ffffff,
-          0 0 2px #ffffff,
-          0 0 3px #ffffff;
+          0 0 1px #fff,
+          0 0 2px #fff,
+          0 0 3px #fff;
       }
       50% {
         text-shadow:
-          0 0 3px #ffffff,
-          0 0 6px #ffffff,
-          0 0 9px #ffffff;
+          0 0 2px #fff,
+          0 0 3px #fff,
+          0 0 4px #fff;
       }
     }
     .welcome-box h1 {
@@ -143,12 +144,44 @@
         opacity: 0.7;
       }
     }
+
+    /* استایل پروانه */
+    .butterfly {
+      position: absolute;
+      top: 50px;
+      left: -100px;
+      width: 50px;
+      height: auto;
+      z-index: 999;
+      animation: fly 15s ease-in-out infinite;
+    }
+    @keyframes fly {
+      0% {
+        transform: translate(-100px, 0) rotate(0deg);
+      }
+      30% {
+        transform: translate(150px, 120px) rotate(10deg); /* روی گل‌ها میشینه */
+      }
+      40% {
+        transform: translate(150px, 120px) rotate(-10deg);
+      }
+      70% {
+        transform: translate(400px, -50px) rotate(15deg);
+      }
+      100% {
+        transform: translate(110vw, -200px) rotate(30deg);
+      }
+    }
   </style>
 </head>
 <body>
   <div class="welcome-box fade-in-up neon-text">
     <h1>Welcome to Tina's Magical World</h1>
   </div>
+
+  <!-- پروانه -->
+  <img src="butterfly.png" alt="Butterfly" class="butterfly" />
+
   <img src="tina1.jpg" alt="Tina" class="tina-image fade-in-up" />
   <div class="birth-box fade-in-up">
     <p>Born on: 2020,07,07</p>
@@ -248,6 +281,5 @@
   این سایت در تاریخ یکم" اردیبهشت ۱۴۰۴ در شرکت نیک سیستم و توسط سعید جمشیدی طراحی و اجرا گردیده است.
   باشد که بماند به یادگار
   -->
-
 </body>
 </html>
